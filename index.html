@@ -104,8 +104,6 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 <div class="memory-word-box" aria-label="As cinco palavras da atividade de memória">
 <span>JANELA</span><span>LIMÃO</span><span>BARCO</span><span>NUVEM</span><span>CHAVE</span>
 </div>
-<div class="actions"><button id="playMemory" class="secondary" type="button">Ouvir palavras</button></div>
-<p id="memoryAudioStatus" class="audio-status" aria-live="polite">Use o botão para ouvir as palavras.</p>
 
 </div>
 <div class="step" data-step="3">
@@ -267,7 +265,6 @@ function say(text,statusId){
  utterance.onerror=()=>status.textContent='Não foi possível reproduzir o áudio. Verifique as configurações de som do dispositivo.';
  window.speechSynthesis.speak(utterance);
 }
-$('playMemory').addEventListener('click',()=>say('Janela. Limão. Barco. Nuvem. Chave.','memoryAudioStatus'));
 function resetTrail(){
  trailPosition=0;
  $('trailLines').replaceChildren();
