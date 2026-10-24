@@ -1,29 +1,30 @@
-# Rastreio Cognitivo
+# Instrumento de rastreio cognitivo
 
-Versão adaptada e interativa, composta por atividades cognitivas originais para demonstração educacional.
+Página interativa em português com atividades autorais demonstrativas sobre atenção, memória, linguagem, raciocínio, orientação, sequência alfanumérica e reconhecimento de imagens/palavras.
 
 ## Importante
 
-Esta página é uma versão adaptada, não oficial e não validada. As tarefas são originais, não reproduzem itens do instrumento oficial e servem apenas para compreensão do estado global da cognição por inferência clínica. Não gera escore clínico, não substitui o instrumento oficial e não deve ser apresentada como teste validado para diagnóstico.
+Esta é uma versão adaptada, não oficial e não validada psicometricamente. As atividades são originais, não reproduzem itens oficiais do MoCA ou do HTM-Verbal, não geram escore clínico e não devem ser utilizadas isoladamente para diagnóstico.
 
 ## Recursos
 
-- Oito atividades demonstrativas de atenção, memória, linguagem, percepção visuoespacial, abstração, raciocínio lógico-matemático e orientação temporal.
+- Nome completo e data da aplicação.
 - Aceite dos termos antes de iniciar.
-- Resumo das respostas e opção de baixar PDF pelo navegador, com alternativa de impressão/salvar como PDF.
-- As respostas permanecem no navegador durante a sessão; não são enviadas a um servidor.
+- Dez atividades com navegação entre questões.
+- Reprodução das palavras por voz sintetizada pelo navegador.
+- Atividade interativa de sequência alfanumérica.
+- Resumo das respostas e geração de relatório em PDF, com alternativa de impressão/salvar como PDF.
+- As respostas ficam no navegador durante a sessão e não são enviadas a um servidor.
 
-## Publicar com GitHub Pages
+## GitHub Pages
 
 1. No repositório, abra **Settings → Pages**.
-2. Em **Build and deployment**, escolha **Deploy from a branch**.
-3. Selecione a branch `main` e a pasta `/(root)` e salve.
-4. Aguarde o GitHub concluir a publicação. O endereço esperado é `https://jericheratho.github.io/rastreiocognitivo/`.
+2. Em **Build and deployment**, selecione **Deploy from a branch**.
+3. Selecione a branch `main` e a pasta `/(root)`; salve.
+4. Após o GitHub concluir a publicação, o endereço esperado é https://jericheratho.github.io/rastreiocognitivo/.
 
-## Referência
+## Referência informativa
 
-Nasreddine, Z. S., et al. (2005). *The Montreal Cognitive Assessment, MoCA: A Brief Screening Tool For Mild Cognitive Impairment*. Journal of the American Geriatrics Society, 53(4), 695–699. https://doi.org/10.1111/j.1532-5415.2005.53221.x
+Montreal Cognitive Assessment (MoCA), versão brasileira — UNIFESP-SP, 2007. A referência é informativa: esta página não constitui reprodução ou versão validada do instrumento oficial.
 
-A referência bibliográfica não implica autorização, equivalência psicométrica ou validação desta adaptação.
-
-Adaptada por Ezequias Alves de Souza Júnior, Neuropsicólogo, CRP 03/24123. O uso da IA foi necessário para gerar a estrutura do site, bem como para hospedá-lo na internet. A responsabilidade pelo conteúdo é do autor.
+Repositório Institucional da UNIFESP: https://repositorio.unifesp.br/handle/11600/8967
