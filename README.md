@@ -1,4 +1,4 @@
-# Atenção, Memória e Inteligência
+# Rastreio Cognitivo
 
 Versão adaptada e interativa, composta por atividades cognitivas originais para demonstração educacional.
 
@@ -25,3 +25,5 @@ Esta página é uma versão adaptada, não oficial e não validada. As tarefas s
 Nasreddine, Z. S., et al. (2005). *The Montreal Cognitive Assessment, MoCA: A Brief Screening Tool For Mild Cognitive Impairment*. Journal of the American Geriatrics Society, 53(4), 695–699. https://doi.org/10.1111/j.1532-5415.2005.53221.x
 
 A referência bibliográfica não implica autorização, equivalência psicométrica ou validação desta adaptação.
+
+Adaptada por Ezequias Alves de Souza Júnior, Neuropsicólogo, CRP 03/24123. O uso da IA foi necessário para gerar a estrutura do site, bem como para hospedá-lo na internet. A responsabilidade pelo conteúdo é do autor.
