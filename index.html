@@ -41,8 +41,13 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .shape-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:14px}
 .shape-choice{display:flex;flex-direction:column;align-items:center;gap:7px;background:#f8faf7;border:1px solid var(--line);padding:12px;border-radius:12px;font-weight:550}
 .shape-choice svg{width:60px;height:60px}
-.word-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;margin-top:14px}
-.word-grid label{margin:0}
+.word-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px}
+.word-grid label.choices{margin:0;min-height:58px;padding:13px 14px;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;box-shadow:0 2px 8px #203b2708;transition:background .15s,border-color .15s,box-shadow .15s}
+.word-grid label.choices:hover{border-color:#93b296}
+.word-grid label.choices.selected{background:#eaf3e9;border-color:var(--green);box-shadow:0 0 0 2px #486b5220}
+.word-grid input[type=checkbox]{width:18px;height:18px;flex:0 0 18px;accent-color:var(--green)}
+.memory-word-box{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;padding:18px;margin:15px 0;background:#f8faf7;border:1.5px solid var(--line);border-radius:14px}
+.memory-word-box span{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;background:#fff;border:1px solid #bdcbbd;border-radius:9px;font-weight:750;letter-spacing:.045em;min-width:90px}
 .inline-control{display:inline-flex;align-items:center;gap:9px}
 .audio-status,.game-status{min-height:1.5em;color:var(--muted);font-size:.92rem;margin-top:9px}
 .trail-wrap{max-width:700px;margin:12px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
@@ -95,9 +100,16 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 <input id="q1" name="Atenção seletiva — contagem da letra A" type="number" min="0" max="12" inputmode="numeric">
 </div>
 <div class="step" data-step="2">
-<p class="prompt">2. Você irá escutar cinco palavras por alguns segundos. Escute com atenção e tente memorizá-las.</p>
+<p class="prompt">2. Você irá escutar estas cinco palavras por alguns segundos. Escute com atenção e tente memorizá-las. Você será convidado(a) a repeti-las em ordens crescente e decrescente.</p>
+<div class="memory-word-box" aria-label="As cinco palavras da atividade de memória">
+<span>JANELA</span><span>LIMÃO</span><span>BARCO</span><span>NUVEM</span><span>CHAVE</span>
+</div>
 <div class="actions"><button id="playMemory" class="secondary" type="button">Ouvir palavras</button></div>
 <p id="memoryAudioStatus" class="audio-status" aria-live="polite">Use o botão para ouvir as palavras.</p>
+<div class="row">
+<div><label for="q2ascending">Registre as palavras em ordem crescente</label><textarea id="q2ascending" name="Memória — ordem crescente" placeholder="Digite as palavras na ordem solicitada..."></textarea></div>
+<div><label for="q2descending">Registre as palavras em ordem decrescente</label><textarea id="q2descending" name="Memória — ordem decrescente" placeholder="Digite as palavras na ordem solicitada..."></textarea></div>
+</div>
 </div>
 <div class="step" data-step="3">
 <p class="prompt">3. Escreva uma frase completa sobre algo que costuma fazer em uma manhã tranquila.</p>
@@ -266,11 +278,11 @@ function resetTrail(){
  $('trailResult').value='Não concluída';
 }
 function trailClick(node){
+ if(trailPosition>=expectedTrail.length)return;
  const value=node.dataset.value;
  if(value!==expectedTrail[trailPosition]){
   trailMistakes++;
-  resetTrail();
-  $('trailStatus').textContent='Sequência incorreta. Tente novamente a partir do círculo 1.';
+  $('trailStatus').textContent='Essa não é a próxima opção da sequência. O progresso foi mantido; tente o próximo elemento correto. Erros: '+trailMistakes+'.';
   return;
  }
  if(trailPosition>0){
@@ -286,10 +298,16 @@ function trailClick(node){
   $('trailStatus').textContent='Sequência concluída.';
   $('trailResult').value='Concluída: 1-B-2-D-3-F-4-H-5-J. Tentativas incorretas: '+trailMistakes;
  }else{
-  $('trailStatus').textContent='Correto. Continue a sequência.';
-  $('trailResult').value='Em andamento; '+trailPosition+' de 10 pontos conectados.';
+  $('trailStatus').textContent='Correto. Continue a sequência. Elementos conectados: '+trailPosition+' de 10. Erros: '+trailMistakes+'.';
+  $('trailResult').value='Em andamento; '+trailPosition+' de 10 pontos conectados. Tentativas incorretas: '+trailMistakes+'.';
  }
 }
+document.querySelectorAll('.word-grid input[type="checkbox"]').forEach(input=>{
+ input.addEventListener('change',()=>{
+  const card=input.closest('label.choices');
+  if(card)card.classList.toggle('selected',input.checked);
+ });
+});
 document.querySelectorAll('.trail-node').forEach(node=>{
  node.addEventListener('click',()=>trailClick(node));
  node.addEventListener('keydown',event=>{
