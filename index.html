@@ -67,7 +67,7 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 <body>
 <header><div class="wrap">
 <h1>Instrumento de rastreio cognitivo</h1>
-<p>Análise clínica da cognição global, com base no teste MoCA (versão brasileira — UNIFESP-SP, 2007).</p>
+<p>Análise clínica da cognição global, com base no teste MoCA (v. UNIFESP-SP, 2007).</p>
 </div></header>
 <main>
 <div class="notice"><strong>Importante:</strong> esta é uma versão adaptada, não oficial e não validada psicometricamente. As atividades desta página são originais, não reproduzem itens oficiais do MoCA ou do HTM-Verbal, não geram escore clínico e não devem ser utilizadas isoladamente para diagnóstico.</div>
@@ -149,20 +149,20 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 </div>
 </div>
 <div class="step" data-step="9">
-<p class="prompt">9. Complete a sequência abaixo, clicando nos círculos e alternando números e letras, do 1 até a letra E.</p>
+<p class="prompt">9. Complete a sequência clicando nos círculos, alternando números em ordem crescente e letras em ordem alfabética, pulando uma letra entre cada escolha.</p>
 <div class="trail-wrap">
 <svg id="trailSvg" viewBox="0 0 600 465" role="img" aria-label="Atividade de sequência alfanumérica com círculos numerados de 1 a 5 e letras de A a E espalhados pela tela">
 <g id="trailLines"></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo E" data-value="E"><circle cx="190" cy="58" r="25"/><text x="190" y="59">E</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo A" data-value="A"><circle cx="405" cy="58" r="25"/><text x="405" y="59">A</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo J" data-value="J"><circle cx="205" cy="420" r="25"/><text x="205" y="421">J</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo B" data-value="B"><circle cx="365" cy="58" r="25"/><text x="365" y="59">B</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 5" data-value="5"><circle cx="65" cy="160" r="25"/><text x="65" y="161">5</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 1" data-value="1"><circle cx="190" cy="245" r="25"/><text x="190" y="246">1</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo B" data-value="B"><circle cx="350" cy="205" r="25"/><text x="350" y="206">B</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo H" data-value="H"><circle cx="340" cy="205" r="25"/><text x="340" y="206">H</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 2" data-value="2"><circle cx="520" cy="190" r="25"/><text x="520" y="191">2</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo D" data-value="D"><circle cx="100" cy="350" r="25"/><text x="100" y="351">D</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 4" data-value="4"><circle cx="320" cy="355" r="25"/><text x="320" y="356">4</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 3" data-value="3"><circle cx="515" cy="365" r="25"/><text x="515" y="366">3</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo C" data-value="C"><circle cx="205" cy="420" r="25"/><text x="205" y="421">C</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo F" data-value="F"><circle cx="200" cy="145" r="25"/><text x="200" y="146">F</text></g>
 </svg>
 </div>
 <p id="trailStatus" class="game-status" aria-live="polite">Comece pelo círculo 1.</p>
@@ -215,7 +215,7 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 (function(){
 'use strict';
 const $=id=>document.getElementById(id);
-const expectedTrail=['1','A','2','B','3','C','4','D','5','E'];
+const expectedTrail=['1','B','2','D','3','F','4','H','5','J'];
 let current=0,trailPosition=0,trailMistakes=0;
 const steps=Array.from(document.querySelectorAll('.step'));
 const today=new Date();
@@ -284,7 +284,7 @@ function trailClick(node){
  node.classList.add('visited');trailPosition++;
  if(trailPosition===expectedTrail.length){
   $('trailStatus').textContent='Sequência concluída.';
-  $('trailResult').value='Concluída: 1-A-2-B-3-C-4-D-5-E. Tentativas incorretas: '+trailMistakes;
+  $('trailResult').value='Concluída: 1-B-2-D-3-F-4-H-5-J. Tentativas incorretas: '+trailMistakes;
  }else{
   $('trailStatus').textContent='Correto. Continue a sequência.';
   $('trailResult').value='Em andamento; '+trailPosition+' de 10 pontos conectados.';
