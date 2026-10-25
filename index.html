@@ -187,7 +187,7 @@ footer{padding:0 12px 28px;overflow-wrap:anywhere}
 <div class="step" data-step="9">
 <p class="prompt">9. Complete a sequência clicando nos círculos, alternando números em ordem crescente e letras em ordem alfabética, pulando uma letra entre cada escolha.</p>
 <div class="trail-wrap">
-<svg id="trailSvg" viewBox="0 0 600 465" role="img" aria-label="Atividade de sequência alfanumérica com números e letras distribuídos pela tela">
+<svg id="trailSvg" viewBox="0 0 600 465" role="img" aria-label="Atividade de sequência alfanumérica com números de 1 a 5 e letras B, D, F, H e J distribuídos pela tela">
 <g id="trailLines"></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo J" data-value="J"><circle cx="205" cy="420" r="25"/><text x="205" y="421">J</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo B" data-value="B"><circle cx="365" cy="58" r="25"/><text x="365" y="59">B</text></g>
@@ -278,7 +278,7 @@ function drawTrailLine(fromValue,toValue){
 function applyTrailLayout(){
  const mobile=window.matchMedia('(max-width: 600px)').matches;
  const positions=mobile?trailMobilePositions:trailDesktopPositions;
- $('trailSvg').setAttribute('viewBox',mobile?'0 0 390 510':'0 0 600 485');
+ $('trailSvg').setAttribute('viewBox',mobile?'0 0 390 510':'0 0 600 530');
  document.querySelectorAll('.trail-node').forEach(node=>{
   const p=positions[node.dataset.value];if(!p)return;
   const circle=node.querySelector('circle'),label=node.querySelector('text');
