@@ -185,20 +185,22 @@ footer{padding:0 12px 28px;overflow-wrap:anywhere}
 </div>
 </div>
 <div class="step" data-step="9">
-<p class="prompt">9. Complete a sequência clicando nos círculos, alternando números em ordem crescente e letras em ordem alfabética, pulando uma letra entre cada escolha.</p>
+<p class="prompt">9. Complete a sequência clicando nos círculos e alternando números em ordem crescente com letras em ordem alfabética. Observe que os intervalos entre as letras variam.</p>
 <div class="trail-wrap">
-<svg id="trailSvg" viewBox="0 0 600 465" role="img" aria-label="Atividade de sequência alfanumérica com números de 1 a 5 e letras B, D, F, H e J distribuídos pela tela">
+<svg id="trailSvg" viewBox="0 0 600 660" role="img" aria-label="Atividade de sequência alfanumérica com números de 1 a 6 e letras C, E, H, K, N e R distribuídos pela tela">
 <g id="trailLines"></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo J" data-value="J"><circle cx="205" cy="420" r="25"/><text x="205" y="421">J</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo B" data-value="B"><circle cx="365" cy="58" r="25"/><text x="365" y="59">B</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 5" data-value="5"><circle cx="65" cy="160" r="25"/><text x="65" y="161">5</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 1" data-value="1"><circle cx="190" cy="245" r="25"/><text x="190" y="246">1</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo H" data-value="H"><circle cx="340" cy="205" r="25"/><text x="340" y="206">H</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 2" data-value="2"><circle cx="520" cy="190" r="25"/><text x="520" y="191">2</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo D" data-value="D"><circle cx="100" cy="350" r="25"/><text x="100" y="351">D</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 4" data-value="4"><circle cx="320" cy="355" r="25"/><text x="320" y="356">4</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 3" data-value="3"><circle cx="515" cy="365" r="25"/><text x="515" y="366">3</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo F" data-value="F"><circle cx="200" cy="145" r="25"/><text x="200" y="146">F</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 1" data-value="1"><circle cx="75" cy="65" r="30"/><text x="75" y="66">1</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo C" data-value="C"><circle cx="300" cy="85" r="30"/><text x="300" y="86">C</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 2" data-value="2"><circle cx="525" cy="65" r="30"/><text x="525" y="66">2</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo E" data-value="E"><circle cx="525" cy="170" r="30"/><text x="525" y="171">E</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 3" data-value="3"><circle cx="385" cy="205" r="30"/><text x="385" y="206">3</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo H" data-value="H"><circle cx="75" cy="220" r="30"/><text x="75" y="221">H</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 4" data-value="4"><circle cx="75" cy="345" r="30"/><text x="75" y="346">4</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo K" data-value="K"><circle cx="300" cy="365" r="30"/><text x="300" y="366">K</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 5" data-value="5"><circle cx="525" cy="385" r="30"/><text x="525" y="386">5</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo N" data-value="N"><circle cx="525" cy="500" r="30"/><text x="525" y="501">N</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo 6" data-value="6"><circle cx="300" cy="530" r="30"/><text x="300" y="531">6</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo R" data-value="R"><circle cx="75" cy="610" r="30"/><text x="75" y="611">R</text></g>
 </svg>
 </div>
 <p id="trailStatus" class="game-status" aria-live="polite">Comece pelo círculo 1.</p>
@@ -206,21 +208,21 @@ footer{padding:0 12px 28px;overflow-wrap:anywhere}
 </div>
 <div class="step" data-step="10">
 <p class="prompt">10. Observe as imagens e selecione as palavras que correspondem a elas.</p>
-<div class="image-board" aria-label="Ilustrações de instrumentos e objetos">
-<div class="image-tile" role="img" aria-label="Bússola ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="39" fill="#edf3ed" stroke="#486b52" stroke-width="3"/><circle cx="50" cy="50" r="29" fill="#fff" stroke="#bdcbbd" stroke-width="1.8"/><path d="M50 22 L62 55 L50 49 L38 55 Z" fill="#b9784e" stroke="#9a5b36" stroke-width="1.5"/><path d="M50 78 L39 46 L50 52 L61 46 Z" fill="#486b52"/><circle cx="50" cy="50" r="3.5" fill="#24352d"/><text x="50" y="15" text-anchor="middle" font-size="9" font-weight="700" fill="#486b52">N</text></svg></div>
-<div class="image-tile" role="img" aria-label="Telescópio ilustrado"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 52 L30 88 M50 52 L72 88 M50 52 L52 90" stroke="#486b52" stroke-width="4" stroke-linecap="round" fill="none"/><g transform="rotate(-32 50 43)"><rect x="22" y="32" width="49" height="22" rx="5" fill="#edf3ed" stroke="#486b52" stroke-width="3"/><rect x="14" y="29" width="12" height="28" rx="2" fill="#b9784e" stroke="#9a5b36" stroke-width="2"/><ellipse cx="72" cy="43" rx="6" ry="13" fill="#d8e2d8" stroke="#486b52" stroke-width="3"/><path d="M37 34 V52 M45 34 V52" stroke="#bdcbbd" stroke-width="2"/></g></svg></div>
-<div class="image-tile" role="img" aria-label="Ampulheta ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M25 12 H75 M25 88 H75" stroke="#486b52" stroke-width="5" stroke-linecap="round"/><path d="M31 16 Q31 33 49 48 Q31 65 31 84 H69 Q69 65 51 48 Q69 33 69 16 Z" fill="#edf3ed" stroke="#486b52" stroke-width="3"/><path d="M36 22 H64 L51 39 L49 39 Z M37 79 L49 59 L51 59 L63 79 Z" fill="#b9784e"/><path d="M48 48 H52 L53 58 H47 Z" fill="#b9784e"/></svg></div>
-<div class="image-tile" role="img" aria-label="Peça de xadrez ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M24 84 H78 L72 75 H29 Z" fill="#b9784e" stroke="#9a5b36" stroke-width="2.5"/><path d="M30 74 L35 57 Q30 48 37 40 L30 29 L41 19 L56 25 L66 17 L76 34 L68 45 L69 57 L75 74 Z" fill="#edf3ed" stroke="#486b52" stroke-width="3" stroke-linejoin="round"/><path d="M43 27 L48 35 L39 36 Z" fill="#b9784e"/><circle cx="59" cy="34" r="2.8" fill="#24352d"/><path d="M42 50 Q52 47 61 53" fill="none" stroke="#486b52" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+<div class="image-board" aria-label="Ilustrações de objetos do cotidiano">
+<div class="image-tile" role="img" aria-label="Guarda-chuva ilustrado"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M13 49 Q18 22 50 18 Q82 22 87 49 Q77 45 67 53 Q58 45 50 53 Q41 45 32 53 Q22 45 13 49 Z" fill="#dcebdd" stroke="#486b52" stroke-width="3" stroke-linejoin="round"/><path d="M50 20 V67 Q50 83 64 77 Q69 74 65 68" fill="none" stroke="#b9784e" stroke-width="5" stroke-linecap="round"/><path d="M32 27 L32 51 M67 27 L67 51" stroke="#bdcbbd" stroke-width="2"/></svg></div>
+<div class="image-tile" role="img" aria-label="Mochila ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M35 27 Q35 12 50 12 Q65 12 65 27" fill="none" stroke="#486b52" stroke-width="5" stroke-linecap="round"/><path d="M27 31 Q27 24 36 24 H64 Q73 24 73 34 L78 77 Q79 84 70 84 H30 Q21 84 22 77 Z" fill="#dcebdd" stroke="#486b52" stroke-width="3"/><path d="M30 52 Q50 45 70 52 L68 72 Q50 78 32 72 Z" fill="#fff" stroke="#486b52" stroke-width="2.5"/><path d="M39 54 V68 M61 54 V68" stroke="#bdcbbd" stroke-width="2"/><path d="M25 38 L17 66 M75 38 L83 66" stroke="#b9784e" stroke-width="4" stroke-linecap="round"/></svg></div>
+<div class="image-tile" role="img" aria-label="Chaleira ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M30 39 Q24 42 27 65 Q29 82 49 82 H60 Q76 80 75 62 L71 39 Z" fill="#dcebdd" stroke="#486b52" stroke-width="3"/><path d="M31 42 L17 35 L13 49 L27 54" fill="#dcebdd" stroke="#486b52" stroke-width="3" stroke-linejoin="round"/><path d="M71 44 Q89 44 85 65 Q81 76 73 70" fill="none" stroke="#486b52" stroke-width="4"/><path d="M33 38 H70 L65 30 H39 Z" fill="#b9784e" stroke="#9a5b36" stroke-width="2.5"/><path d="M46 26 Q50 20 55 26" fill="none" stroke="#486b52" stroke-width="3" stroke-linecap="round"/><path d="M34 61 H68" stroke="#bdcbbd" stroke-width="2"/></svg></div>
+<div class="image-tile" role="img" aria-label="Tesoura ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="30" cy="69" r="13" fill="#dcebdd" stroke="#486b52" stroke-width="3"/><circle cx="48" cy="77" r="12" fill="#dcebdd" stroke="#486b52" stroke-width="3"/><path d="M38 61 L74 20 Q80 14 84 19 Q87 23 81 28 L51 68" fill="#fff" stroke="#486b52" stroke-width="3" stroke-linejoin="round"/><path d="M49 68 L21 25 Q17 19 22 16 Q27 14 31 21 L61 72" fill="#fff" stroke="#486b52" stroke-width="3" stroke-linejoin="round"/><circle cx="43" cy="66" r="4" fill="#b9784e" stroke="#9a5b36" stroke-width="1.5"/></svg></div>
 </div>
 <div class="word-grid">
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Bússola"> Bússola</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Binóculos"> Binóculos</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Telescópio"> Telescópio</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Microscópio"> Microscópio</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Ampulheta"> Ampulheta</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Relógio"> Relógio</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Peça de xadrez"> Peça de xadrez</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Dominó"> Dominó</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Guarda-chuva"> Guarda-chuva</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Carteira"> Carteira</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Mochila"> Mochila</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Garrafa"> Garrafa</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Chaleira"> Chaleira</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Lanterna"> Lanterna</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Tesoura"> Tesoura</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Fone de ouvido"> Fone de ouvido</label>
 </div>
 </div>
 <div class="actions no-print">
@@ -251,19 +253,21 @@ footer{padding:0 12px 28px;overflow-wrap:anywhere}
 (function(){
 'use strict';
 const $=id=>document.getElementById(id);
-const expectedTrail=['1','B','2','D','3','F','4','H','5','J'];
+const expectedTrail=['1','C','2','E','3','H','4','K','5','N','6','R'];
 let current=0,trailPosition=0,trailMistakes=0;
 const steps=Array.from(document.querySelectorAll('.step'));
 const today=new Date();
 $('applicationDate').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
 
 const trailDesktopPositions={
- '1':[75,65],'B':[300,85],'2':[525,65],'D':[525,180],'3':[385,205],
- 'F':[75,220],'4':[75,345],'H':[300,365],'5':[525,385],'J':[300,490]
+ '1':[75,65],'C':[300,85],'2':[525,65],'E':[525,170],'3':[385,205],
+ 'H':[75,220],'4':[75,345],'K':[300,365],'5':[525,385],'N':[525,500],
+ '6':[300,530],'R':[75,610]
 };
 const trailMobilePositions={
- '1':[50,60],'B':[195,80],'2':[340,60],'D':[340,165],'3':[235,195],
- 'F':[50,225],'4':[50,340],'H':[195,355],'5':[340,370],'J':[195,465]
+ '1':[50,60],'C':[195,80],'2':[340,60],'E':[340,165],'3':[235,195],
+ 'H':[50,225],'4':[50,340],'K':[195,355],'5':[340,370],'N':[340,485],
+ '6':[195,515],'R':[50,620]
 };
 function drawTrailLine(fromValue,toValue){
  const from=document.querySelector('.trail-node[data-value="'+fromValue+'"]');
@@ -278,7 +282,7 @@ function drawTrailLine(fromValue,toValue){
 function applyTrailLayout(){
  const mobile=window.matchMedia('(max-width: 600px)').matches;
  const positions=mobile?trailMobilePositions:trailDesktopPositions;
- $('trailSvg').setAttribute('viewBox',mobile?'0 0 390 510':'0 0 600 530');
+ $('trailSvg').setAttribute('viewBox',mobile?'0 0 390 660':'0 0 600 660');
  document.querySelectorAll('.trail-node').forEach(node=>{
   const p=positions[node.dataset.value];if(!p)return;
   const circle=node.querySelector('circle'),label=node.querySelector('text');
@@ -343,10 +347,10 @@ function trailClick(node){
  node.classList.add('visited');trailPosition++;
  if(trailPosition===expectedTrail.length){
   $('trailStatus').textContent='Sequência concluída.';
-  $('trailResult').value='Concluída: 1-B-2-D-3-F-4-H-5-J. Tentativas incorretas: '+trailMistakes;
+  $('trailResult').value='Concluída: '+expectedTrail.join('-')+'. Tentativas incorretas: '+trailMistakes;
  }else{
-  $('trailStatus').textContent='Correto. Continue a sequência. Elementos conectados: '+trailPosition+' de 10. Erros: '+trailMistakes+'.';
-  $('trailResult').value='Em andamento; '+trailPosition+' de 10 pontos conectados. Tentativas incorretas: '+trailMistakes+'.';
+  $('trailStatus').textContent='Correto. Continue a sequência. Elementos conectados: '+trailPosition+' de '+expectedTrail.length+'. Erros: '+trailMistakes+'.';
+  $('trailResult').value='Em andamento; '+trailPosition+' de '+expectedTrail.length+' pontos conectados. Tentativas incorretas: '+trailMistakes+'.';
  }
 }
 document.querySelectorAll('.word-grid input[type="checkbox"]').forEach(input=>{
