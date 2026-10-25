@@ -19,7 +19,7 @@ main{padding:24px 18px 44px}
 p{margin:.55rem 0}
 .muted{color:var(--muted);font-size:.92rem}
 label{display:block;font-weight:600;margin:12px 0 5px}
-input[type=text],input[type=date],input[type=number],textarea{display:block;width:100%;max-width:100%;min-width:0;padding:12px;border:1px solid #bdcbbd;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}
+input[type=text],input[type=date],input[type=number],textarea{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;padding:12px;border:1px solid #bdcbbd;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
 textarea{min-height:100px;resize:vertical}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.row>div{min-width:0}
 button{border:0;border-radius:10px;padding:12px 17px;font:inherit;font-weight:700;cursor:pointer;transition:transform .08s ease,opacity .15s ease}
@@ -71,7 +71,7 @@ main{padding:16px 12px 30px}
 .row{grid-template-columns:minmax(0,1fr);gap:10px}
 .row>div{width:100%;min-width:0}
 input[type=text],input[type=date],input[type=number],textarea{width:100%;max-width:100%;min-width:0;font-size:16px}
-input[type=date]{min-height:50px;text-align:left}
+input[type=date]{display:block;width:100%;max-width:100%;min-width:0;min-height:50px;box-sizing:border-box;padding:12px;text-align:left;-webkit-appearance:none;appearance:none}
 .prompt{font-size:1.08rem;line-height:1.5;overflow-wrap:anywhere}
 .shape-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .shape-choice{min-width:0;padding:12px 8px}
