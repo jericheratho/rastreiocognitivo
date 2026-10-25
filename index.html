@@ -19,9 +19,9 @@ main{padding:24px 18px 44px}
 p{margin:.55rem 0}
 .muted{color:var(--muted);font-size:.92rem}
 label{display:block;font-weight:600;margin:12px 0 5px}
-input[type=text],input[type=date],input[type=number],textarea{width:100%;padding:12px;border:1px solid #bdcbbd;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}
+input[type=text],input[type=date],input[type=number],textarea{display:block;width:100%;max-width:100%;min-width:0;padding:12px;border:1px solid #bdcbbd;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}
 textarea{min-height:100px;resize:vertical}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.row>div{min-width:0}
 button{border:0;border-radius:10px;padding:12px 17px;font:inherit;font-weight:700;cursor:pointer;transition:transform .08s ease,opacity .15s ease}
 button:active{transform:translateY(1px)}
 button:disabled{opacity:.45;cursor:not-allowed}
@@ -50,11 +50,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .memory-word-box span{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;background:#fff;border:1px solid #bdcbbd;border-radius:9px;font-weight:750;letter-spacing:.045em;min-width:90px}
 .inline-control{display:inline-flex;align-items:center;gap:9px}
 .audio-status,.game-status{min-height:1.5em;color:var(--muted);font-size:.92rem;margin-top:9px}
-.trail-wrap{max-width:700px;margin:12px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.trail-wrap{width:100%;max-width:none;margin:12px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
 #trailSvg{display:block;width:100%;height:auto;touch-action:manipulation}
 .trail-node{cursor:pointer;outline:none}
 .trail-node circle{fill:#fff;stroke:#29332d;stroke-width:3.5}
-.trail-node text{fill:#172019;font-size:29px;font-weight:700;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.trail-node text{fill:#172019;font-size:34px;font-weight:700;text-anchor:middle;dominant-baseline:central;pointer-events:none}
 .trail-node.visited circle{fill:#dcebdd;stroke:#486b52}
 .trail-node:focus circle{stroke:#a65f35;stroke-width:5}
 #trailLines line{stroke:#486b52;stroke-width:3;stroke-dasharray:7 6;stroke-linecap:round}
@@ -65,7 +65,36 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .summary-row strong{display:block;margin-bottom:4px}
 footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 [hidden]{display:none!important}
-@media(max-width:480px){.image-board{grid-template-columns:repeat(2,1fr)}.actions button{flex:1 1 100%}.pattern{letter-spacing:.08em}}
+@media(max-width:600px){
+main{padding:16px 12px 30px}
+.panel{padding:18px 14px;margin:12px 0;border-radius:16px}
+.row{grid-template-columns:minmax(0,1fr);gap:10px}
+.row>div{width:100%;min-width:0}
+input[type=text],input[type=date],input[type=number],textarea{width:100%;max-width:100%;min-width:0;font-size:16px}
+input[type=date]{min-height:50px;text-align:left}
+.prompt{font-size:1.08rem;line-height:1.5;overflow-wrap:anywhere}
+.shape-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.shape-choice{min-width:0;padding:12px 8px}
+.shape-choice svg{width:68px;height:68px}
+.word-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.word-grid label.choices{min-width:0;padding:12px 10px;font-size:.95rem;overflow-wrap:anywhere}
+.image-board{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px;gap:10px}
+.image-tile{min-height:120px}
+.image-tile svg{display:block;width:clamp(58px,16vw,84px);height:auto}
+.trail-wrap{width:100%;max-width:none;margin:16px 0 0}
+#trailSvg{width:100%;height:auto}
+.trail-node text{font-size:29px}
+.actions{gap:8px}
+.actions button{flex:1 1 100%;min-height:48px}
+.pattern{letter-spacing:.08em}
+footer{padding:0 12px 28px;overflow-wrap:anywhere}
+}
+@media(max-width:360px){
+.panel{padding:16px 11px}
+.shape-choice svg{width:58px;height:58px}
+.word-grid label.choices{padding:11px 8px;font-size:.9rem;gap:7px}
+.image-tile{min-height:100px}
+}
 @media print{body{background:#fff;font-size:12pt}header{background:#fff;color:#111;padding:10px 0}main{padding:0}.panel{box-shadow:none;break-inside:avoid;border:1px solid #aaa}.no-print,button,.progress{display:none!important}.step{display:block!important}.notice{background:#fff;color:#222}input,textarea{border:0;border-bottom:1px solid #aaa;padding:3px}footer{padding:10px 0}}
 </style>
 </head>
@@ -116,6 +145,7 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 <label class="shape-choice"><input type="radio" name="Reconhecimento de forma" value="Círculo"><svg viewBox="0 0 60 60" role="img" aria-label="Círculo"><circle cx="30" cy="30" r="22" fill="#dcebdd" stroke="#486b52" stroke-width="2.5"/></svg><span>Círculo</span></label>
 <label class="shape-choice"><input type="radio" name="Reconhecimento de forma" value="Triângulo"><svg viewBox="0 0 60 60" role="img" aria-label="Triângulo"><polygon points="30,6 55,52 5,52" fill="#dcebdd" stroke="#486b52" stroke-width="2.5"/></svg><span>Triângulo</span></label>
 <label class="shape-choice"><input type="radio" name="Reconhecimento de forma" value="Losango"><svg viewBox="0 0 60 60" role="img" aria-label="Losango"><polygon points="30,4 56,30 30,56 4,30" fill="#dcebdd" stroke="#486b52" stroke-width="2.5"/></svg><span>Losango</span></label>
+<label class="shape-choice"><input type="radio" name="Reconhecimento de forma" value="Pentágono"><svg viewBox="0 0 60 60" role="img" aria-label="Pentágono"><polygon points="30,4 56,22 46,54 14,54 4,22" fill="#dcebdd" stroke="#486b52" stroke-width="2.5"/></svg><span>Pentágono</span></label>
 </div>
 </div>
 <div class="step" data-step="5">
@@ -128,7 +158,6 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 <label><input type="radio" name="Raciocínio lógico-verbal" value="Ana"> Ana</label>
 <label><input type="radio" name="Raciocínio lógico-verbal" value="Bruno"> Bruno</label>
 <label><input type="radio" name="Raciocínio lógico-verbal" value="Carla"> Carla</label>
-<label><input type="radio" name="Raciocínio lógico-verbal" value="Não é possível saber"> Não é possível saber</label>
 </div>
 </div>
 <div class="step" data-step="7">
@@ -158,7 +187,7 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 <div class="step" data-step="9">
 <p class="prompt">9. Complete a sequência clicando nos círculos, alternando números em ordem crescente e letras em ordem alfabética, pulando uma letra entre cada escolha.</p>
 <div class="trail-wrap">
-<svg id="trailSvg" viewBox="0 0 600 465" role="img" aria-label="Atividade de sequência alfanumérica com círculos numerados de 1 a 5 e letras de A a E espalhados pela tela">
+<svg id="trailSvg" viewBox="0 0 600 465" role="img" aria-label="Atividade de sequência alfanumérica com números e letras distribuídos pela tela">
 <g id="trailLines"></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo J" data-value="J"><circle cx="205" cy="420" r="25"/><text x="205" y="421">J</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo B" data-value="B"><circle cx="365" cy="58" r="25"/><text x="365" y="59">B</text></g>
@@ -177,21 +206,21 @@ footer{padding:0 18px 32px;color:var(--muted);font-size:.9rem}
 </div>
 <div class="step" data-step="10">
 <p class="prompt">10. Observe as imagens e selecione as palavras que correspondem a elas.</p>
-<div class="image-board" aria-label="Imagens para reconhecimento">
-<div class="image-tile" role="img" aria-label="Casa">🏠</div>
-<div class="image-tile" role="img" aria-label="Árvore">🌳</div>
-<div class="image-tile" role="img" aria-label="Peixe">🐟</div>
-<div class="image-tile" role="img" aria-label="Estrela">⭐</div>
+<div class="image-board" aria-label="Ilustrações de instrumentos e objetos">
+<div class="image-tile" role="img" aria-label="Bússola ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="39" fill="#edf3ed" stroke="#486b52" stroke-width="3"/><circle cx="50" cy="50" r="29" fill="#fff" stroke="#bdcbbd" stroke-width="1.8"/><path d="M50 22 L62 55 L50 49 L38 55 Z" fill="#b9784e" stroke="#9a5b36" stroke-width="1.5"/><path d="M50 78 L39 46 L50 52 L61 46 Z" fill="#486b52"/><circle cx="50" cy="50" r="3.5" fill="#24352d"/><text x="50" y="15" text-anchor="middle" font-size="9" font-weight="700" fill="#486b52">N</text></svg></div>
+<div class="image-tile" role="img" aria-label="Telescópio ilustrado"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 52 L30 88 M50 52 L72 88 M50 52 L52 90" stroke="#486b52" stroke-width="4" stroke-linecap="round" fill="none"/><g transform="rotate(-32 50 43)"><rect x="22" y="32" width="49" height="22" rx="5" fill="#edf3ed" stroke="#486b52" stroke-width="3"/><rect x="14" y="29" width="12" height="28" rx="2" fill="#b9784e" stroke="#9a5b36" stroke-width="2"/><ellipse cx="72" cy="43" rx="6" ry="13" fill="#d8e2d8" stroke="#486b52" stroke-width="3"/><path d="M37 34 V52 M45 34 V52" stroke="#bdcbbd" stroke-width="2"/></g></svg></div>
+<div class="image-tile" role="img" aria-label="Ampulheta ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M25 12 H75 M25 88 H75" stroke="#486b52" stroke-width="5" stroke-linecap="round"/><path d="M31 16 Q31 33 49 48 Q31 65 31 84 H69 Q69 65 51 48 Q69 33 69 16 Z" fill="#edf3ed" stroke="#486b52" stroke-width="3"/><path d="M36 22 H64 L51 39 L49 39 Z M37 79 L49 59 L51 59 L63 79 Z" fill="#b9784e"/><path d="M48 48 H52 L53 58 H47 Z" fill="#b9784e"/></svg></div>
+<div class="image-tile" role="img" aria-label="Peça de xadrez ilustrada"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M24 84 H78 L72 75 H29 Z" fill="#b9784e" stroke="#9a5b36" stroke-width="2.5"/><path d="M30 74 L35 57 Q30 48 37 40 L30 29 L41 19 L56 25 L66 17 L76 34 L68 45 L69 57 L75 74 Z" fill="#edf3ed" stroke="#486b52" stroke-width="3" stroke-linejoin="round"/><path d="M43 27 L48 35 L39 36 Z" fill="#b9784e"/><circle cx="59" cy="34" r="2.8" fill="#24352d"/><path d="M42 50 Q52 47 61 53" fill="none" stroke="#486b52" stroke-width="2.5" stroke-linecap="round"/></svg></div>
 </div>
 <div class="word-grid">
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Casa"> Casa</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Livro"> Livro</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Árvore"> Árvore</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Lua"> Lua</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Peixe"> Peixe</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Carro"> Carro</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Estrela"> Estrela</label>
-<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Flor"> Flor</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Bússola"> Bússola</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Astrolábio"> Astrolábio</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Telescópio"> Telescópio</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Microscópio"> Microscópio</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Ampulheta"> Ampulheta</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Metrônomo"> Metrônomo</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Peça de xadrez"> Peça de xadrez</label>
+<label class="choices"><input type="checkbox" name="Reconhecimento de imagens e palavras" value="Sextante"> Sextante</label>
 </div>
 </div>
 <div class="actions no-print">
@@ -228,6 +257,37 @@ const steps=Array.from(document.querySelectorAll('.step'));
 const today=new Date();
 $('applicationDate').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
 
+const trailDesktopPositions={
+ '1':[190,245],'B':[365,58],'2':[520,190],'D':[100,350],'3':[515,365],
+ 'F':[200,145],'4':[320,355],'H':[340,205],'5':[65,160],'J':[205,420]
+};
+const trailMobilePositions={
+ '1':[50,60],'B':[195,80],'2':[340,60],'D':[340,165],'3':[235,195],
+ 'F':[50,225],'4':[50,340],'H':[195,355],'5':[340,370],'J':[195,465]
+};
+function drawTrailLine(fromValue,toValue){
+ const from=document.querySelector('.trail-node[data-value="'+fromValue+'"]');
+ const to=document.querySelector('.trail-node[data-value="'+toValue+'"]');
+ if(!from||!to)return;
+ const c1=from.querySelector('circle'),c2=to.querySelector('circle');
+ const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+ line.setAttribute('x1',c1.getAttribute('cx'));line.setAttribute('y1',c1.getAttribute('cy'));
+ line.setAttribute('x2',c2.getAttribute('cx'));line.setAttribute('y2',c2.getAttribute('cy'));
+ $('trailLines').appendChild(line);
+}
+function applyTrailLayout(){
+ const mobile=window.matchMedia('(max-width: 600px)').matches;
+ const positions=mobile?trailMobilePositions:trailDesktopPositions;
+ $('trailSvg').setAttribute('viewBox',mobile?'0 0 390 510':'0 0 600 485');
+ document.querySelectorAll('.trail-node').forEach(node=>{
+  const p=positions[node.dataset.value];if(!p)return;
+  const circle=node.querySelector('circle'),label=node.querySelector('text');
+  circle.setAttribute('cx',p[0]);circle.setAttribute('cy',p[1]);circle.setAttribute('r',mobile?'24':'30');
+  label.setAttribute('x',p[0]);label.setAttribute('y',p[1]+1);
+ });
+ $('trailLines').replaceChildren();
+ for(let i=1;i<trailPosition;i++)drawTrailLine(expectedTrail[i-1],expectedTrail[i]);
+}
 function showStep(){
  steps.forEach((step,index)=>step.classList.toggle('active',index===current));
  $('stepCounter').textContent='Questão '+(current+1)+' de '+steps.length;
@@ -279,14 +339,7 @@ function trailClick(node){
   $('trailStatus').textContent='Essa não é a próxima opção da sequência. O progresso foi mantido; tente o próximo elemento correto. Erros: '+trailMistakes+'.';
   return;
  }
- if(trailPosition>0){
-  const prev=document.querySelector('.trail-node[data-value="'+expectedTrail[trailPosition-1]+'"]');
-  const c1=prev.querySelector('circle'),c2=node.querySelector('circle');
-  const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-  line.setAttribute('x1',c1.getAttribute('cx'));line.setAttribute('y1',c1.getAttribute('cy'));
-  line.setAttribute('x2',c2.getAttribute('cx'));line.setAttribute('y2',c2.getAttribute('cy'));
-  $('trailLines').appendChild(line);
- }
+ if(trailPosition>0)drawTrailLine(expectedTrail[trailPosition-1],value);
  node.classList.add('visited');trailPosition++;
  if(trailPosition===expectedTrail.length){
   $('trailStatus').textContent='Sequência concluída.';
@@ -391,6 +444,8 @@ $('finishBtn').addEventListener('click',finish);
 $('downloadBtn').addEventListener('click',downloadPDF);
 $('printBtn').addEventListener('click',()=>window.print());
 $('restartBtn').addEventListener('click',()=>window.location.reload());
+window.addEventListener('resize',applyTrailLayout);
+applyTrailLayout();
 showStep();
 })();
 </script>
