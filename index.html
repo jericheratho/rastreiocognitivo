@@ -185,23 +185,22 @@ footer{padding:0 12px 28px;overflow-wrap:anywhere}
 </div>
 </div>
 <div class="step" data-step="9">
-<p class="prompt">9. Complete a sequência clicando nos círculos e alternando números em ordem crescente com letras em ordem alfabética. Observe que os intervalos entre as letras variam.</p>
+<p class="prompt">9. Complete a sequência clicando nos círculos e alternando números em ordem crescente com letras em ordem alfabética.</p>
 <div class="trail-wrap">
-<svg id="trailSvg" viewBox="0 0 600 660" role="img" aria-label="Atividade de sequência alfanumérica com números de 1 a 6 e letras C, E, H, K, N e R distribuídos pela tela">
+<svg id="trailSvg" viewBox="0 0 600 660" role="img" aria-label="Atividade de sequência alfanumérica com números de 1 a 6 e letras de A a F distribuídos pela tela">
 <g id="trailLines"></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 1" data-value="1"><circle cx="75" cy="65" r="30"/><text x="75" y="66">1</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo C" data-value="C"><circle cx="300" cy="85" r="30"/><text x="300" y="86">C</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo A" data-value="A"><circle cx="300" cy="85" r="30"/><text x="300" y="86">A</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 2" data-value="2"><circle cx="525" cy="65" r="30"/><text x="525" y="66">2</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo E" data-value="E"><circle cx="525" cy="170" r="30"/><text x="525" y="171">E</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo B" data-value="B"><circle cx="525" cy="170" r="30"/><text x="525" y="171">B</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 3" data-value="3"><circle cx="385" cy="205" r="30"/><text x="385" y="206">3</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo H" data-value="H"><circle cx="75" cy="220" r="30"/><text x="75" y="221">H</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo C" data-value="C"><circle cx="75" cy="220" r="30"/><text x="75" y="221">C</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 4" data-value="4"><circle cx="75" cy="345" r="30"/><text x="75" y="346">4</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo K" data-value="K"><circle cx="300" cy="365" r="30"/><text x="300" y="366">K</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo D" data-value="D"><circle cx="300" cy="365" r="30"/><text x="300" y="366">D</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 5" data-value="5"><circle cx="525" cy="385" r="30"/><text x="525" y="386">5</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo N" data-value="N"><circle cx="525" cy="500" r="30"/><text x="525" y="501">N</text></g>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo E" data-value="E"><circle cx="525" cy="500" r="30"/><text x="525" y="501">E</text></g>
 <g class="trail-node" tabindex="0" role="button" aria-label="Círculo 6" data-value="6"><circle cx="300" cy="530" r="30"/><text x="300" y="531">6</text></g>
-<g class="trail-node" tabindex="0" role="button" aria-label="Círculo R" data-value="R"><circle cx="75" cy="610" r="30"/><text x="75" y="611">R</text></g>
-</svg>
+<g class="trail-node" tabindex="0" role="button" aria-label="Círculo F" data-value="F"><circle cx="75" cy="610" r="30"/><text x="75" y="611">F</text></g>
 </div>
 <p id="trailStatus" class="game-status" aria-live="polite">Comece pelo círculo 1.</p>
 <input id="trailResult" name="Sequência alfanumérica" type="hidden" value="Não concluída">
@@ -253,21 +252,21 @@ footer{padding:0 12px 28px;overflow-wrap:anywhere}
 (function(){
 'use strict';
 const $=id=>document.getElementById(id);
-const expectedTrail=['1','C','2','E','3','H','4','K','5','N','6','R'];
+const expectedTrail=['1','A','2','B','3','C','4','D','5','E','6','F'];
 let current=0,trailPosition=0,trailMistakes=0;
 const steps=Array.from(document.querySelectorAll('.step'));
 const today=new Date();
 $('applicationDate').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
 
 const trailDesktopPositions={
- '1':[75,65],'C':[300,85],'2':[525,65],'E':[525,170],'3':[385,205],
- 'H':[75,220],'4':[75,345],'K':[300,365],'5':[525,385],'N':[525,500],
- '6':[300,530],'R':[75,610]
+ '1':[75,65],'A':[300,85],'2':[525,65],'B':[525,170],'3':[385,205],
+ 'C':[75,220],'4':[75,345],'D':[300,365],'5':[525,385],'E':[525,500],
+ '6':[300,530],'F':[75,610]
 };
 const trailMobilePositions={
- '1':[50,60],'C':[195,80],'2':[340,60],'E':[340,165],'3':[235,195],
- 'H':[50,225],'4':[50,340],'K':[195,355],'5':[340,370],'N':[340,485],
- '6':[195,515],'R':[50,620]
+ '1':[50,60],'A':[195,80],'2':[340,60],'B':[340,165],'3':[235,195],
+ 'C':[50,225],'4':[50,340],'D':[195,355],'5':[340,370],'E':[340,485],
+ '6':[195,515],'F':[50,620]
 };
 function drawTrailLine(fromValue,toValue){
  const from=document.querySelector('.trail-node[data-value="'+fromValue+'"]');
